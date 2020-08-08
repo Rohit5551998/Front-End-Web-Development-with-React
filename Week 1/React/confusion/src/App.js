@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+// eslint-disable-next-line no-unused-vars
 import logo from './logo.svg';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './components/MenuComponent';
