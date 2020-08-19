@@ -77,9 +77,8 @@ class Contact extends Component {
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
                                     />
-                                    <Errors
-                                        className="text-danger" model=".firstname"
-                                        show="touched" messages={{
+                                    <Errors className="text-danger" model=".firstname" show="touched"
+                                            messages={{
                                             required: 'Required',
                                             minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
@@ -88,17 +87,16 @@ class Contact extends Component {
                                 </Col>
                             </Row>
                             <Row className="form-group">            
-                                <Label htmlFor="lastname" md={2}>Last Name</Label>
-                                <Col md={10}>
+                                <Label htmlFor="lastname">Last Name</Label>
+                                <Col>
                                     <Control.text model=".lastname" id="lastname" name="lastname" 
                                         placeholder="Last Name" className="form-control"
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
                                     />
-                                    <Errors
-                                        className="text-danger" model=".lastname"
-                                        show="touched" messages={{
+                                    <Errors className="text-danger" model=".lastname" show="touched" 
+                                        messages={{
                                             required: 'Required',
                                             minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
@@ -115,9 +113,8 @@ class Contact extends Component {
                                             required, minLength: minLength(3), maxLength: maxLength(15), isNumber
                                         }}
                                     />
-                                    <Errors
-                                        className="text-danger" model=".telnum"
-                                        show="touched" messages={{
+                                    <Errors className="text-danger" model=".telnum" show="touched" 
+                                        messages={{
                                             required: 'Required',
                                             minLength: 'Must be greater than 2 numbers',
                                             maxLength: 'Must be 15 numbers or less',
@@ -135,9 +132,8 @@ class Contact extends Component {
                                             required, validEmail
                                         }}
                                     />
-                                    <Errors
-                                        className="text-danger" model=".email"
-                                        show="touched" messages={{
+                                    <Errors className="text-danger" model=".email" show="touched" 
+                                        messages={{
                                             required: 'Required',
                                             validEmail: 'Invalid Email Address'
                                         }}
