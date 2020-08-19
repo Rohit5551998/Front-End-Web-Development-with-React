@@ -87,8 +87,8 @@ class Contact extends Component {
                                 </Col>
                             </Row>
                             <Row className="form-group">            
-                                <Label htmlFor="lastname">Last Name</Label>
-                                <Col>
+                                <Label htmlFor="lastname" md={2}>Last Name</Label>
+                                <Col md={10}>
                                     <Control.text model=".lastname" id="lastname" name="lastname" 
                                         placeholder="Last Name" className="form-control"
                                         validators={{
