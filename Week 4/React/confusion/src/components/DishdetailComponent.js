@@ -22,7 +22,7 @@ function RenderDish({dish}) {
     );
 }
 
-function RenderComments({comments}) {
+function RenderComments({comments, addComment, dishId}) {
 
     const commentList = comments.map((item) => {
         var date = new Date(Date.parse(item.date));
@@ -42,7 +42,7 @@ function RenderComments({comments}) {
             <h4>Comments</h4>
             <ul class="list-unstyled">
                 {commentList}
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment} />
             </ul>
         </div>
     );
@@ -67,8 +67,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log("Current State is: " + JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -94,15 +93,15 @@ class CommentForm extends Component {
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="yourname" xs={12}>Your Name</Label>
+                                <Label htmlFor="author" xs={12}>Your Name</Label>
                                 <Col xs={12}>
-                                    <Control.text model=".yourname" id="yourname" name="yourname"
+                                    <Control.text model=".author" id="author" name="author"
                                         placeholder="Your Name" className="form-control" 
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }} 
                                     />
-                                    <Errors className="text-danger" model=".yourname" show="touched"
+                                    <Errors className="text-danger" model=".author" show="touched"
                                         messages={{
                                             required, minLength: 'Must be greater than 2 characters',
                                             maxLength: 'Must be 15 characters or less'
@@ -147,7 +146,9 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDish dish={props.dish} />
-                    <RenderComments comments={props.comments} />
+                    <RenderComments comments={props.comments} 
+                        addComment={props.addComment} dishId={props.dish.id}
+                    />
                 </div>
             </div> 
         );
